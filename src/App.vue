@@ -1,9 +1,11 @@
 <template>
   <v-app>
-    <Navigation />
-    <v-main>
-      <Home />
-    </v-main>
+    <vuescroll>
+      <Navigation />
+      <v-main>
+        <Home />
+      </v-main>
+    </vuescroll>
   </v-app>
 </template>
 
