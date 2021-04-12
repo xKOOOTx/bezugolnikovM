@@ -63,15 +63,30 @@ export default {
   &__block {
     display: flex;
     align-items: center;
+    margin-right: 120px;
     padding-top: 24px;
+    padding-left: 0;
+    transition: color .2s ease-in-out;
+    &:hover li a {
+      color: rgba(#fff, .3);
+    }
+    &:hover li:hover a {
+      color: $white;
+    }
     &_li {
-      margin: 0 10px;
-      padding: 15px;
+      padding: 5px;
       &:hover .navigation__block_link {
         animation: swing-top-bck 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
       }
       &:hover .navigation__block_link-span {
+        display: block;
         animation: swing-top-bck-another 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      }
+      /*&:hover ~ li > a {
+        color: $white;
+      }*/
+      &:nth-child(2) {
+        margin: 0 40px;
       }
     }
     &_link {
@@ -80,17 +95,19 @@ export default {
       font-family: 'Poppins', sans-serif;
       font-size: 16px;
       font-weight: 600;
-      color: rgba(#fff, .3);
-      transform: translateY(0%);
+      line-height: 1;
+      color: $white;
+      transform: translateY(-50%);
       opacity: 100%;
       transition: transform .1s ease;
 
       &-span {
-        display: block;
+        display: none;
         text-transform: capitalize;
         font-family: 'Poppins', sans-serif;
         font-size: 16px;
         font-weight: 600;
+        line-height: 1;
         color: $white;
         transform: translateY(0);
         opacity: 0;

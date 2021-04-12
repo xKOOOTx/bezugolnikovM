@@ -1,17 +1,32 @@
 <template>
   <div class="bottomNavigation">
     <div class="bottomNavigation__left">
-      <div class="bottomNavigation__left_block">
-        <v-icon class="bottomNavigation__left_arrowIcon">mdiChevronDown</v-icon>
-        <a href="#" class="bottomNavigation__left_link-span">
-          Scroll or press me to navigate
-        </a>
-      </div>
-      <div class="bottomNavigation__left_block-span">
-        <v-icon class="bottomNavigation__left_arrowIcon">mdiChevronDown</v-icon>
-        <a href="#" class="bottomNavigation__left_link-span">
-          Scroll or press me to navigate
-        </a>
+      <a href="#" class="bottomNavigation__left_link">
+        <i class="fas fa-chevron-down bottomNavigation__left_arrowIcon"></i>
+        Scroll or press me to navigate
+      </a>
+      <a href="#" class="bottomNavigation__left_link-span">
+        <i class="fas fa-chevron-down bottomNavigation__left_arrowIcon-span"></i>
+        Scroll or press me to navigate
+      </a>
+    </div>
+    <div class="bottomNavigation__right">
+      <p class="bottomNavigation__right_text">
+        Contacts:
+      </p>
+      <div class="bottomNavigation__socials">
+        <div class="bottomNavigation__socials_block">
+          <a class="bottomNavigation__socials_whatsapp socials"><i class="fab fa-whatsapp"></i></a>
+          <a class="bottomNavigation__socials_whatsapp-span socials-span"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <div class="bottomNavigation__socials_block">
+          <a class="bottomNavigation__socials_vk socials"><i class="fab fa-vk"></i></a>
+          <a class="bottomNavigation__socials_vk-span socials-span"><i class="fab fa-vk"></i></a>
+        </div>
+        <div class="bottomNavigation__socials_block">
+          <a class="bottomNavigation__socials_instagram socials"><i class="fab fa-instagram"></i></a>
+          <a class="bottomNavigation__socials_instagram-span socials-span"><i class="fab fa-instagram"></i></a>
+        </div>
       </div>
     </div>
   </div>
@@ -29,40 +44,110 @@ export default {
 
 .bottomNavigation {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: fixed;
   width: 90%;
   bottom: 30px;
   margin: 30px 80px;
   z-index: 2;
   &__left {
-    display: flex;
+    display: block;
     align-items: center;
     margin-left: 20px;
-    &:hover .bottomNavigation__left_block {
+    line-height: 1;
+    &:hover .bottomNavigation__left_link {
       animation: swing-top-bck 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     }
-    &:hover .bottomNavigation__left_block-span {
+    &:hover .bottomNavigation__left_link-span {
       animation: swing-top-bck-another 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     }
     &_link {
-      display: block;
-      transform: translateY(0%);
+      display: flex;
+      align-items: center;
+      transform: translateY(0);
       opacity: 1;
       color: rgba($white, .7);
       &-span {
-        display: block;
-        transform: translateY(0);
+        display: flex;
+        transform: translateY(0%);
         opacity: 0;
         color: $white;
       }
     }
     &_arrowIcon {
-      color: $white;
+      display: block;
+      margin-right: 10px;
+      color: rgba($white, .7);
+      &-span {
+        display: block;
+        align-self: center;
+        margin-right: 10px;
+        color: $white;
+      }
+    }
+  }
+  &__right {
+    display: flex;
+    margin-right: 100px;
+    align-items: center;
+    color: $white;
+    &_text {
+      margin-right: 15px;
+      margin-bottom: 20px;
+    }
+  }
+  &__socials {
+    display: flex;
+    &_block {
+      display: block;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+      &:hover .socials {
+        animation: swing-top-bck 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      }
+      &:hover .socials-span {
+        animation: swing-top-bck-another 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      }
+    }
+    &_whatsapp-span {
+      color: #25d366;
+    }
+    &_vk-span {
+      color: #2787F5;
+    }
+    &_instagram-span {
+      background-image: linear-gradient(45deg, #FFDC80,#FCAF45,#F77737,#F56040,#FD1D1D,#E1306C,#C13584,#833AB4,#5851DB,#405DE6);
+      background-size: 100%;
+      -webkit-background-clip: text;
+      //-moz-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-text-fill-color: transparent;
     }
   }
 }
-.bottomNavigation__left_arrowIcon {
+
+.socials {
+  display: block;
   color: $white;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  padding: 0 20px;
+  transform: translateY(0);
+  opacity: 1;
+  &:hover {
+    color: blue;
+  }
+  &-span {
+    display: block;
+    padding: 0 20px;
+    font-size: 22px;
+    line-height: 1;
+    transform: translateY(0%);
+    opacity: 0;
+  }
 }
 
 // animation from swipe from bottom to top
@@ -94,7 +179,7 @@ export default {
   }
   100% {
     transform: translateY(-100%);
-    opacity: 100%;
+    opacity: 1;
   }
 }
 @keyframes swing-top-bck-another {
@@ -104,11 +189,7 @@ export default {
   }
   100% {
     transform: translateY(-100%);
-    opacity: 100%;
+    opacity: 1;
   }
-}
-
-.fa-chevron-down {
-  color: $white;
 }
 </style>

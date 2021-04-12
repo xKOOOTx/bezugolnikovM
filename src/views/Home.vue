@@ -1,20 +1,18 @@
 <template>
   <div class="home">
     <div class="introduction">
-
     </div>
-    <div class="someblock">
-      som block
-    </div>
+    <BottomNavigation />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import BottomNavigation from '../components/BottomNavigation'
 
 export default {
   name: 'Home',
   components: {
+    BottomNavigation
   }
 }
 </script>
@@ -28,9 +26,5 @@ export default {
   height: 100vh;
   background: url("../assets/images/DSC_9409.jpg") center no-repeat;
   background-size: cover;
-}
-
-.someblock {
-  height: 100vk;
 }
 </style>
