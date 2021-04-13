@@ -12,7 +12,7 @@
     </div>
     <div class="bottomNavigation__right">
       <p class="bottomNavigation__right_text">
-        Contacts:
+        Contacts
       </p>
       <div class="bottomNavigation__socials">
         <div class="bottomNavigation__socials_block">
@@ -46,9 +46,9 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
   width: 90%;
-  bottom: 30px;
+  position: absolute;
+  bottom: 0;
   margin: 30px 80px;
   z-index: 2;
   &__left {
