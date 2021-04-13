@@ -24,6 +24,13 @@
           <i class="fas fa-chevron-right"></i>
         </button>
       </section>
+      <img class="about__img" src="../assets/images/2k/wedding(bw).jpg" alt="photo">
+      <div class="about__bottom">
+        <div class="about__bottom_imgBlock">
+          <img class="about__bottom_img" src="../assets/images/2k/wedding(bw).jpg" alt="photo">
+          <img class="about__bottom_img" src="../assets/images/2k/wedding(bw).jpg" alt="photo">
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -56,11 +63,12 @@ export default {
   background-color: $greyBackground;
 }
 .about {
+  position: relative;
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
   font-family: 'Poppins', sans-serif;
-  padding: 80px 0 100px 0;
+  padding: 80px 0 350px 0;
   background-color: $greyBackground;
   background-size: cover;
   &__subtitle {
@@ -121,6 +129,15 @@ export default {
     & i {
       margin-left: 25px;
     }
+  }
+  &__img {
+    position: absolute;
+    width: 915px;
+    top: -500px;
+    margin: 0 auto;
+  }
+  &__bottom {
+
   }
 }
 
