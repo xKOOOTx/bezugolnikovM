@@ -22,11 +22,11 @@ li {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #555;
+  background: #f33a3a;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -24,11 +24,62 @@
           <i class="fas fa-chevron-right"></i>
         </button>
       </section>
-      <img class="about__img" src="../assets/images/2k/wedding(bw).jpg" alt="photo">
+      <div class="about__imgWrapper">
+        <img src="../assets/images/2k/wedding(bw).jpg" alt="photo">
+      </div>
       <div class="about__bottom">
         <div class="about__bottom_imgBlock">
           <img class="about__bottom_img" src="../assets/images/2k/wedding(bw).jpg" alt="photo">
           <img class="about__bottom_img" src="../assets/images/2k/wedding(bw).jpg" alt="photo">
+        </div>
+        <section class="about__description">
+          <h2 class="about__description_header">
+            In photography there is a reality
+            so subtle that it becomes more
+            real than reality
+          </h2>
+          <span class="about__description_name">
+            Alfred Stieglitz
+          </span>
+        </section>
+      </div>
+    </div>
+    <div class="photo">
+      <img src="../assets/images/2k/wedding(bw)wide.jpg" alt="photo">
+    </div>
+    <div class="finalShots">
+      <div class="finalShots__text">
+        <h3 class="finalShots__subtitle">final shots</h3>
+        <h1 class="finalShots__title">Just more pictures of this black and white editorial</h1>
+      </div>
+    </div>
+    <div class="slider">
+      <div class="slider__wrapper">
+        <img src="" alt="">
+        <img src="" alt="">
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="spacer-small"></div>
+    <div class="home__footer">
+      <div class="home__footer_bottom">
+        <div class="home__footer_backTop">
+          <a href="#" class="home__footer_link">
+            <i class="fas fa-chevron-up"></i>
+            back top
+          </a>
+          <span class="home__footer_link-span">
+            <a href="#">
+              <i class="fas fa-chevron-up"></i>
+              back top
+            </a>
+          </span>
+        </div>
+        <div class="home__footer_copyright">
+          <p>2020&copy;copyright</p>
+        </div>
+        <div class="home__footer_followUs">
+          follow us <span><i class="fas fa-share-alt"></i></span>
         </div>
       </div>
     </div>
@@ -51,6 +102,47 @@ export default {
 @import '../assets/style/variales';
 .home {
   height: 100vh;
+  &__footer {
+    position: relative;
+    height: 100vh;
+    padding: 0 50px;
+    background: url("../assets/images/2k/official.jpg") center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    text-transform: capitalize;
+    color: $white;
+    &_bottom {
+      display: flex;
+      width: 100%;
+      height: 100px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &_backTop {
+      display: flex;
+      flex-direction: column;
+      color: $white;
+      &:hover .home__footer_link {
+        opacity: 0;
+        animation: swing-top-bck 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      }
+    }
+    &_link {
+      &-span {
+        display: none;
+        opacity: 0;
+        & a {
+          color: $white;
+        }
+      }
+    }
+    &_backTop:hover .home__footer_link-span {
+      animation: swing-top-bck-another 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      display: block;
+      opacity: 1;
+    }
+  }
 }
 
 .introduction {
@@ -60,15 +152,15 @@ export default {
   background-size: cover;
 }
 .aboutBlock {
+  position: relative;
   background-color: $greyBackground;
 }
 .about {
-  position: relative;
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
   font-family: 'Poppins', sans-serif;
-  padding: 80px 0 350px 0;
+  padding: 80px 0 150px 0;
   background-color: $greyBackground;
   background-size: cover;
   &__subtitle {
@@ -130,23 +222,156 @@ export default {
       margin-left: 25px;
     }
   }
-  &__img {
-    position: absolute;
-    width: 915px;
-    top: -500px;
-    margin: 0 auto;
+  &__imgWrapper {
+    position: relative;
+    height: 300px;
+    background-color: $greyBackground;
+    & img {
+      position: absolute;
+      width: 1226px;
+      top: 0;
+      left: 10.1%;
+    }
   }
   &__bottom {
+    &_imgBlock {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 550px 155px 0;
+      background-color: $anotherGreyBackground;
+      & img {
+        max-width: 595px;
+        height: 400px;
+        &:nth-child(2) {
+        }
+      }
+    }
 
   }
+  &__description {
+    padding-bottom: 80px;
+    text-align: center;
+    background-color: $anotherGreyBackground;
+    &_header {
+      width: 800px;
+      margin: 0 auto;
+      padding: 80px 0 15px;
+      font-family: "Roboto Slab", serif;
+      font-size: 49px;
+      font-weight: 500;
+      color: $white;
+    }
+    &_name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: $pink;
+    }
+  }
 }
-
+.photo {
+  display: flex;
+  justify-content: center;
+  background-color: $anotherGreyBackground;
+  & img {
+    height: 500px;
+    width: auto;
+  }
+}
+.finalShots {
+  background-color: $anotherGreyBackground;
+  padding-bottom: 70px;
+  &__text {
+    width: 575px;
+    text-align: left;
+    padding-top: 100px;
+    margin-left: 150px;
+  }
+  &__subtitle {
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: $pink;
+  }
+  &__title {
+    font-size: 36px;
+    font-weight: 500;
+    color: $white;
+  }
+}
+.slider {
+  position: relative;
+  padding-top: 50px;
+  height: 250px;
+  background-color: $anotherGreyBackground;
+  &__wrapper {
+    position: absolute;
+    top: 0;
+    margin-left: 150px;
+    & img {
+      width: 600px;
+      height: 400px;
+    }
+  }
+}
+.spacer {
+  height: 250px;
+  background-color: $greyBackground;
+  &-small {
+    height: 50px;
+    background-color: $anotherGreyBackground;
+  }
+}
 @keyframes backgroundButtonWidth {
   0% {
     width: 20%;
   }
   100% {
     width: 100%;
+  }
+}
+// animation from swipe from bottom to top
+@-webkit-keyframes swing-top-bck {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+}
+@keyframes swing-top-bck {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes swing-top-bck-another {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+}
+@keyframes swing-top-bck-another {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 1;
   }
 }
 </style>
