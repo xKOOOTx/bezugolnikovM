@@ -54,7 +54,6 @@ export default {
   &__left {
     display: block;
     align-items: center;
-    margin-left: 20px;
     line-height: 1;
     &:hover .bottomNavigation__left_link {
       animation: swing-top-bck 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -67,11 +66,13 @@ export default {
       align-items: center;
       transform: translateY(0);
       opacity: 1;
+      font-size: 14px;
       color: rgba($white, .7);
       &-span {
         display: flex;
         transform: translateY(0%);
         opacity: 0;
+        font-size: 14px;
         color: $white;
       }
     }
@@ -89,8 +90,8 @@ export default {
   }
   &__right {
     display: flex;
-    margin-right: 100px;
     align-items: center;
+    font-size: 14px;
     color: $white;
     &_text {
       margin-right: 15px;
@@ -102,13 +103,15 @@ export default {
     &_block {
       display: block;
       cursor: pointer;
-      font-size: 22px;
       line-height: 1;
       &:hover .socials {
         animation: swing-top-bck 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
       }
       &:hover .socials-span {
         animation: swing-top-bck-another 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      }
+      & a {
+        font-size: 18px;
       }
     }
     &_whatsapp-span {

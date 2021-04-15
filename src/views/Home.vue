@@ -76,10 +76,32 @@
           </span>
         </div>
         <div class="home__footer_copyright">
-          <p>2020&copy;copyright</p>
+          <p>2020&copy; copyright</p>
         </div>
         <div class="home__footer_followUs">
-          follow us <span><i class="fas fa-share-alt"></i></span>
+          <div class="home__footer_followUs_block">
+            follow us
+            <span>
+              <i class="fas fa-share-alt"></i>
+            </span>
+          </div>
+          <div class="home__footer_followUs_socials">
+            <a href="#" class="home__footer_followUs_socials-link-vk">
+              <i class="fab fa-vk"></i>
+            </a>
+            <a href="#" class="home__footer_followUs_socials-link-instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="home__footer_followUs_socials-link-facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="home__footer_followUs_socials-link-twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="home__footer_followUs_socials-link-whatsapp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -122,18 +144,30 @@ export default {
     &_backTop {
       display: flex;
       flex-direction: column;
-      color: $white;
+      font-size: 14px;
       &:hover .home__footer_link {
         opacity: 0;
         animation: swing-top-bck 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
       }
     }
     &_link {
+      color: $white!important;
+      line-height: 0;
+      transform: translateY(0%);
+      & i {
+        padding-right: 10px;
+      }
       &-span {
         display: none;
+        margin-top: 15px;
         opacity: 0;
+        line-height: 0;
+        transform: translateY(0);
         & a {
-          color: $white;
+          color: $white!important;
+        }
+        & i {
+          padding-right: 10px;
         }
       }
     }
@@ -141,6 +175,65 @@ export default {
       animation: swing-top-bck-another 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
       display: block;
       opacity: 1;
+    }
+    &_followUs {
+      &_block {
+        display: block;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        transform: translateY(0);
+      }
+      &:hover .home__footer_followUs_block {
+        animation: liftFollowUs .2s ease-in-out;
+        transform: translateY(-50px);
+      }
+      &:hover .home__footer_followUs_socials {
+        display: flex;
+        opacity: 1;
+        height: 30px;
+        animation: liftUpSocials .2s ease-in-out;
+      }
+      &_socials {
+        opacity: 0;
+        position: absolute;
+        right: 30px;
+        bottom: 40px;
+        height: 0;
+        & i {
+          font-size: 24px;
+          margin: 0 15px;
+        }
+        &-link {
+          &-twitter,
+          &-facebook,
+          &-vk,
+          &-whatsapp,
+          &-instagram {
+            color: $white!important;
+          }
+          &-twitter:hover {
+            color: #1DA1F2!important;
+          }
+          &-facebook:hover {
+            color: #4267B2!important;
+          }
+          &-whatsapp:hover {
+            color: #25d366!important;
+          }
+          &-vk:hover {
+            color: #2787F5!important;
+          }
+          &-instagram:hover {
+            background-image: linear-gradient(45deg, #FFDC80,#FCAF45,#F77737,#F56040,#FD1D1D,#E1306C,#C13584,#833AB4,#5851DB,#405DE6);
+            background-size: 100%;
+            -webkit-background-clip: text;
+            //-moz-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-text-fill-color: transparent;
+          }
+        }
+      }
     }
   }
 }
@@ -243,8 +336,6 @@ export default {
       & img {
         max-width: 595px;
         height: 400px;
-        &:nth-child(2) {
-        }
       }
     }
 
@@ -324,6 +415,7 @@ export default {
     background-color: $anotherGreyBackground;
   }
 }
+
 @keyframes backgroundButtonWidth {
   0% {
     width: 20%;
@@ -372,6 +464,25 @@ export default {
   100% {
     transform: translateY(-100%);
     opacity: 1;
+  }
+}
+@keyframes liftFollowUs {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50px);
+  }
+}
+@keyframes liftUpSocials {
+  0% {
+    height: 0;
+  }
+  90% {
+    height: 25px;
+  }
+  100% {
+    height: 30px;
   }
 }
 </style>

@@ -22,11 +22,15 @@ li {
 }
 
 ::-webkit-scrollbar {
-  width: 0;
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #f33a3a;
+  background: #202020;
 }
 
 /*# sourceMappingURL=style.css.map */
