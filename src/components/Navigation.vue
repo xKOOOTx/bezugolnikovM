@@ -13,22 +13,22 @@
         </a>
         <ul class="navigation__subblock">
           <li class="navigation__subblock_li">
-            <a href="#" class="navigation__subblock_link">plug</a>
+            <router-link to="/events" class="navigation__subblock_link">events</router-link>
           </li>
           <li class="navigation__subblock_li">
-            <a href="#" class="navigation__subblock_link">plug</a>
+            <a href="#" class="navigation__subblock_link">official</a>
           </li>
           <li class="navigation__subblock_li">
-            <a href="#" class="navigation__subblock_link">plug</a>
+            <a href="#" class="navigation__subblock_link">portrait</a>
           </li>
           <li class="navigation__subblock_li">
-            <a href="#" class="navigation__subblock_link">plug</a>
+            <a href="#" class="navigation__subblock_link">reports</a>
           </li>
           <li class="navigation__subblock_li">
-            <a href="#" class="navigation__subblock_link">plug</a>
+            <a href="#" class="navigation__subblock_link">studio</a>
           </li>
           <li class="navigation__subblock_li">
-            <a href="#" class="navigation__subblock_link">plug</a>
+            <a href="#" class="navigation__subblock_link">wedding</a>
           </li>
         </ul>
       </li>
@@ -97,6 +97,9 @@ export default {
     &_li {
       &:hover .navigation__subblock {
         display: block;
+        height: 215px;
+        opacity: 100%;
+        animation: submenuAnimation .2s ease-in-out;
       }
       padding: 5px;
       &:hover .navigation__block_link {
@@ -138,16 +141,20 @@ export default {
   &__subblock {
     position: absolute;
     display: none;
+    height: 0;
+    opacity: 0;
     top: 0;
     left: -5px;
     padding: 0 100px 15px 10px;
     margin-top: 50px;
     border-radius: 5px;
     background: rgba($greyBackground, .9);
+    transition: height .2s ease-in-out, opacity .2s ease-in-out;
     &_link {
       display: block;
       margin: 5px 5px 5px 0;
       padding: 5px 5px 5px 0;
+      text-transform: capitalize;
       color: $white;
       transition: color .2s ease-in-out;
       &:last-child {
@@ -199,6 +206,17 @@ export default {
   }
   100% {
     transform: translateY(-100%);
+    opacity: 100%;
+  }
+}
+
+@keyframes submenuAnimation {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 215px;
     opacity: 100%;
   }
 }
