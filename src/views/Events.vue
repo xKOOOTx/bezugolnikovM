@@ -186,7 +186,10 @@ export default {
   methods: {
     toTop () {
       this.$vuetify.goTo(0)
-    }
+    },
+    window.addEventListener('scroll', () => {
+      document.getElementById()
+    })
   }
 }
 </script>
