@@ -20,9 +20,6 @@ export default {
     }
   },
   methods: {
-    toTop () {
-      this.$vuetify.goTo(0)
-    }
   }
 }
 </script>

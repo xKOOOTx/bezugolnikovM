@@ -63,14 +63,14 @@
       <div class="footer">
         <div class="footer__bottom">
           <div class="footer__backTop">
-            <a href="#" class="footer__link">
+            <button @click="backToTop" class="footer__link">
               <i class="fas fa-chevron-up"></i>
               back top
-            </a>
+            </button>
             <span class="footer__link-span">
-            <button @click="toTop">
+            <button @click="backToTop">
               <i class="fas fa-chevron-up"></i>
-              back top
+              back top {{ offsetTop }}
             </button>
           </span>
           </div>
@@ -180,16 +180,10 @@ export default {
         easing: 'cubic-bezier(.42,.65,.27,.99)',
         height: 400,
         padding: 50
-      }
+      },
     }
   },
   methods: {
-    toTop () {
-      this.$vuetify.goTo(0)
-    },
-    window.addEventListener('scroll', () => {
-      document.getElementById()
-    })
   }
 }
 </script>

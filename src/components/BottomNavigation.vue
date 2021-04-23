@@ -34,7 +34,9 @@
 
 <script>
 export default {
-  name: 'BottomNavigation'
+  name: 'BottomNavigation',
+  methods: {
+  }
 }
 </script>
 
