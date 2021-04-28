@@ -2,21 +2,22 @@
   <v-app class="app">
     <Navigation />
     <v-main>
-      <Home />
+      <router-view />
+<!--      <Home />-->
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Home from '@/views/Home'
+// import Home from '@/views/Home'
 import Navigation from '@/components/Navigation'
 
 export default {
   name: 'App',
 
   components: {
-    Navigation,
-    Home
+    Navigation
+    // Home
   },
 
   data: () => ({

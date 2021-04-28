@@ -1,16 +1,16 @@
 <template>
   <div class="navigation">
     <div class="navigation__logo">
-      <a href="#" class="navigation__logo_text">Bezugolnikov</a>
+      <router-link to="/" class="navigation__logo_text">Bezugolnikov</router-link>
     </div>
     <ul class="navigation__block">
       <li class="navigation__block_li">
-        <a href="#" class="navigation__block_link">
+        <a href="../views/Gallery.vue" class="navigation__block_link">
           gallery
         </a>
-        <a href="#" class="navigation__block_link-span">
+        <router-link to="/gallery" class="navigation__block_link-span">
           gallery
-        </a>
+        </router-link>
         <ul class="navigation__subblock">
           <li class="navigation__subblock_li">
             <router-link to="/events" class="navigation__subblock_link" :href="`#scroll_to_navigate`">events</router-link>

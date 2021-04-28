@@ -1,5 +1,6 @@
 <template>
     <div class="events">
+      <Home />
       <div class="aboutBlock">
         <section class="about">
           <h2 class="about__subtitle">
@@ -50,20 +51,18 @@
           <h1 class="finalShots__title">Just more pictures of this black and white editorial</h1>
         </div>
       </div>
-      <splide :options="options" class="slider">
-        <splide-slide
-          v-for="(image, idx) in sliderImages"
-          :key="idx"
-        >
-          <img :src=image.path :alt=image.alt class="slider__image">
-        </splide-slide>
-      </splide>
-      <div class="spacer"></div>
+      <div class="slider">
+        <splide :options="options" class="slider__block">
+          <splide-slide v-for="image in sliderImages" :key=image.name>
+            <img :src=image.path :alt=image.alt class="slider__block_image">
+          </splide-slide>
+        </splide>
+      </div>
       <div class="spacer-small"></div>
       <div class="footer">
         <div class="footer__bottom">
           <div class="footer__backTop">
-            <a :href="`#top`" class="footer__link">
+            <a :href="`#home`" class="footer__link">
               <i class="fas fa-chevron-up"></i>
               back top
             </a>
@@ -98,12 +97,14 @@
 </template>
 
 <script>
+import Home from '@/views/Home'
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import '@splidejs/splide/dist/css/themes/splide-default.min.css'
 
 export default {
   name: 'Events',
   components: {
+    Home,
     Splide,
     SplideSlide
   },
@@ -111,52 +112,52 @@ export default {
     return {
       sliderImages: [
         {
-          name: 'photoName',
+          name: 'photoName1',
           path: require('../assets/images/2k/wedding(bw).jpg'),
           alt: 'photoAlt'
         },
         {
-          name: 'photoName',
+          name: 'photoName2',
           path: require('../assets/images/2k/wedding(bw).jpg'),
           alt: 'photoAlt'
         },
         {
-          name: 'photoName',
+          name: 'photoName3',
           path: require('../assets/images/2k/wedding(bw).jpg'),
           alt: 'photoAlt'
         },
         {
-          name: 'photoName',
+          name: 'photoName4',
           path: require('../assets/images/2k/wedding(bw).jpg'),
           alt: 'photoAlt'
         },
         {
-          name: 'photoName',
+          name: 'photoName5',
           path: require('../assets/images/2k/wedding(bw).jpg'),
           alt: 'photoAlt'
         },
         {
-          name: 'photoName',
+          name: 'photoName6',
           path: require('../assets/images/2k/wedding(bw).jpg'),
           alt: 'photoAlt'
         },
         {
-          name: 'photoName',
+          name: 'photoName7',
           path: require('../assets/images/2k/wedding(bw).jpg'),
           alt: 'photoAlt'
         },
         {
-          name: 'photoName',
+          name: 'photoName8',
           path: require('../assets/images/2k/wedding(bw).jpg'),
           alt: 'photoAlt'
         },
         {
-          name: 'photoName',
+          name: 'photoName9',
           path: require('../assets/images/2k/wedding(bw).jpg'),
           alt: 'photoAlt'
         },
         {
-          name: 'photoName',
+          name: 'photoName10',
           path: require('../assets/images/2k/wedding(bw).jpg'),
           alt: 'photoAlt'
         }
@@ -191,12 +192,12 @@ export default {
       options: {
         type: 'loop',
         rewind: 'true',
-        gap: 20,
+        gap: 800,
         perPage: 2,
         start: 2,
         easing: 'cubic-bezier(.42,.65,.27,.99)',
-        height: 400,
-        padding: 50
+        height: 600,
+        padding: 200
       }
     }
   },
@@ -331,8 +332,7 @@ export default {
   justify-content: center;
   background-color: $anotherGreyBackground;
   & img {
-    height: 500px;
-    width: auto;
+    width: 100%;
   }
 }
 .finalShots {
@@ -358,10 +358,14 @@ export default {
   }
 }
 .slider {
+  padding: 50px 0;
   background-color: $greyBackground;
-  &__image {
-    height: 100%;
-    width: 600px;
+  &__block {
+    //background-color: $greyBackground;
+    &_image {
+      height: 100%;
+      width: auto;
+    }
   }
 }
 .spacer {
@@ -439,11 +443,12 @@ export default {
     &:hover .footer__followUs_socials {
       display: flex;
       opacity: 1;
-      height: 30px;
+      height: 25px;
       animation: liftUpSocials .2s ease-in-out;
     }
     &_socials {
       opacity: 0;
+      display: none;
       position: absolute;
       right: 30px;
       bottom: 40px;
@@ -504,7 +509,7 @@ export default {
     height: 25px;
   }
   100% {
-    height: 30px;
+    height: 25px;
   }
 }
 @keyframes liftUpSocials {
@@ -515,7 +520,7 @@ export default {
     height: 25px;
   }
   100% {
-    height: 30px;
+    height: 25px;
   }
 }
 </style>
