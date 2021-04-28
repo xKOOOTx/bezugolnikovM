@@ -5,7 +5,7 @@
         <i class="fas fa-chevron-down bottomNavigation__left_arrowIcon"></i>
         Scroll or press me to navigate
       </a>
-      <a href="#" class="bottomNavigation__left_link-span">
+      <a :href="`#scroll_to_navigate`" class="bottomNavigation__left_link-span" id="scroll_to_navigate">
         <i class="fas fa-chevron-down bottomNavigation__left_arrowIcon-span"></i>
         Scroll or press me to navigate
       </a>

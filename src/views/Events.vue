@@ -63,15 +63,15 @@
       <div class="footer">
         <div class="footer__bottom">
           <div class="footer__backTop">
-            <button @click="backToTop" class="footer__link">
+            <a :href="`#top`" class="footer__link">
               <i class="fas fa-chevron-up"></i>
               back top
-            </button>
+            </a>
             <span class="footer__link-span">
-            <button @click="backToTop">
+            <a :href="`#top`">
               <i class="fas fa-chevron-up"></i>
-              back top {{ offsetTop }}
-            </button>
+              back top
+            </a>
           </span>
           </div>
           <div class="footer__copyright">
@@ -85,21 +85,11 @@
             </span>
             </div>
             <div class="footer__followUs_socials">
-              <a href="#" class="footer__followUs_socials-link-vk">
-                <i class="fab fa-vk"></i>
-              </a>
-              <a href="#" class="footer__followUs_socials-link-instagram">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="#" class="footer__followUs_socials-link-facebook">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="footer__followUs_socials-link-twitter">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="footer__followUs_socials-link-whatsapp">
-                <i class="fab fa-whatsapp"></i>
-              </a>
+              <template v-for="social in footerSocials">
+                <a href="#" :class=social.class :key=social.name>
+                  <i :class=social.iClass></i>
+                </a>
+              </template>
             </div>
           </div>
         </div>
@@ -171,6 +161,33 @@ export default {
           alt: 'photoAlt'
         }
       ],
+      footerSocials: [
+        {
+          name: 'vk',
+          class: 'footer__followUs_socials-link-vk',
+          iClass: 'fab fa-vk'
+        },
+        {
+          name: 'instagram',
+          class: 'footer__followUs_socials-link-instagram',
+          iClass: 'fab fa-instagram'
+        },
+        {
+          name: 'facebook',
+          class: 'footer__followUs_socials-link-facebook',
+          iClass: 'fab fa-facebook-f'
+        },
+        {
+          name: 'twitter',
+          class: 'footer__followUs_socials-link-twitter',
+          iClass: 'fab fa-twitter'
+        },
+        {
+          name: 'whatsapp',
+          class: 'footer__followUs_socials-link-whatsapp',
+          iClass: 'fab fa-whatsapp'
+        }
+      ],
       options: {
         type: 'loop',
         rewind: 'true',
@@ -180,7 +197,7 @@ export default {
         easing: 'cubic-bezier(.42,.65,.27,.99)',
         height: 400,
         padding: 50
-      },
+      }
     }
   },
   methods: {

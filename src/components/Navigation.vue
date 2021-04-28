@@ -13,7 +13,7 @@
         </a>
         <ul class="navigation__subblock">
           <li class="navigation__subblock_li">
-            <router-link to="/events" class="navigation__subblock_link">events</router-link>
+            <router-link to="/events" class="navigation__subblock_link" :href="`#scroll_to_navigate`">events</router-link>
           </li>
           <li class="navigation__subblock_li">
             <a href="#" class="navigation__subblock_link">official</a>
