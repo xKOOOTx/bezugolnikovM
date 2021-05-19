@@ -137,7 +137,7 @@ export default {
       &:hover .navigation__subblock {
         display: block;
         height: 215px;
-        opacity: 100%;
+        opacity: 1;
         animation: submenuAnimation .2s ease-in-out;
       }
       padding: 5px;
@@ -161,7 +161,7 @@ export default {
       line-height: 1;
       color: $white;
       transform: translateY(-50%);
-      opacity: 100%;
+      opacity: 1;
       transition: transform .1s ease;
 
       &-span {
