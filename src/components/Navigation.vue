@@ -235,7 +235,7 @@ export default {
   }
   100% {
     transform: translateY(-100%);
-    opacity: 100%;
+    opacity: 1;
   }
 }
 @keyframes swing-top-bck-another {
@@ -245,7 +245,7 @@ export default {
   }
   100% {
     transform: translateY(-100%);
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
@@ -256,7 +256,7 @@ export default {
   }
   100% {
     height: 215px;
-    opacity: 100%;
+    opacity: 1;
   }
 }
 </style>
