@@ -67,7 +67,7 @@
               back top
             </a>
             <span class="footer__link-span">
-            <a :href="`#top`">
+            <a @click="backToTop">
               <i class="fas fa-chevron-up"></i>
               back top
             </a>
@@ -202,6 +202,10 @@ export default {
     }
   },
   methods: {
+    backToTop () {
+      const el = document.getElementById('top')
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 }
 </script>
