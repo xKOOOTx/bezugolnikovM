@@ -89,7 +89,7 @@ export default {
   methods: {
     scrollToElement () {
       setTimeout(() => {
-        const el = window.scrollBy(0, 100)
+        const el = window.scrollBy(0, 50)
         el.scrollIntoView({ behavior: 'smooth' })
       }, 250)
     }

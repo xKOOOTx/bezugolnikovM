@@ -5,7 +5,7 @@
         <i class="fas fa-chevron-down bottomNavigation__left_arrowIcon"></i>
         Scroll or press me to navigate
       </a>
-      <a :href="`#scroll_to_navigate`" class="bottomNavigation__left_link-span" id="scroll_to_navigate">
+      <a @click="scrollDown" class="bottomNavigation__left_link-span" id="scroll_to_navigate">
         <i class="fas fa-chevron-down bottomNavigation__left_arrowIcon-span"></i>
         Scroll or press me to navigate
       </a>
@@ -36,6 +36,10 @@
 export default {
   name: 'BottomNavigation',
   methods: {
+    scrollDown () {
+      const el = document.getElementById('scroll_to_navigate')
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 }
 </script>
