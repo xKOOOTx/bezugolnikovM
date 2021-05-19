@@ -5,30 +5,19 @@
     </div>
     <ul class="navigation__block">
       <li class="navigation__block_li">
-        <a href="../views/Gallery.vue" class="navigation__block_link">
+        <router-link to="/gallery" class="navigation__block_link">
           gallery
-        </a>
+        </router-link>
         <router-link to="/gallery" class="navigation__block_link-span">
           gallery
         </router-link>
         <ul class="navigation__subblock">
-          <li class="navigation__subblock_li">
-            <router-link to="/events" class="navigation__subblock_link" :href="`#scroll_to_navigate`">events</router-link>
-          </li>
-          <li class="navigation__subblock_li">
-            <a href="#" class="navigation__subblock_link">official</a>
-          </li>
-          <li class="navigation__subblock_li">
-            <a href="#" class="navigation__subblock_link">portrait</a>
-          </li>
-          <li class="navigation__subblock_li">
-            <a href="#" class="navigation__subblock_link">reports</a>
-          </li>
-          <li class="navigation__subblock_li">
-            <a href="#" class="navigation__subblock_link">studio</a>
-          </li>
-          <li class="navigation__subblock_li">
-            <a href="#" class="navigation__subblock_link">wedding</a>
+          <li class="navigation__subblock_li"
+              v-for="(link, idx) in galleryLinks"
+              :key="idx"
+              @click="scrollToElement"
+          >
+            <router-link :to=link.routerLink class="navigation__subblock_link">{{ link.name }}</router-link>
           </li>
         </ul>
       </li>
@@ -54,7 +43,57 @@
 
 <script>
 export default {
-  name: 'Navigation'
+  name: 'Navigation',
+  data () {
+    return {
+      galleryLinks: [
+        {
+          name: 'Events',
+          class: 'events',
+          link: '#events',
+          routerLink: '/events'
+        },
+        {
+          name: 'Official',
+          class: 'official',
+          link: '#official',
+          routerLink: '/official'
+        },
+        {
+          name: 'Portrait',
+          class: 'portrait',
+          link: '#portrait',
+          routerLink: '/portrait'
+        },
+        {
+          name: 'Reports',
+          class: 'reports',
+          link: '#reports',
+          routerLink: '/reports'
+        },
+        {
+          name: 'Studio',
+          class: 'studio',
+          link: '#studio',
+          routerLink: '/studio'
+        },
+        {
+          name: 'Wedding',
+          class: 'wedding',
+          link: '#wedding',
+          routerLink: '/wedding'
+        }
+      ]
+    }
+  },
+  methods: {
+    scrollToElement () {
+      setTimeout(() => {
+        const el = document.getElementById('scroll_to_navigate')
+        el.scrollIntoView({ behavior: 'smooth' })
+      }, 250)
+    }
+  }
 }
 </script>
 
@@ -69,7 +108,7 @@ export default {
   top: 0;
   width: 90%;
   height: 100px;
-  margin: 30px 50px;
+  margin: 10px 50px;
   z-index: 2;
   &__logo {
     margin-left: 20px;

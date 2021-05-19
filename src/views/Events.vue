@@ -1,5 +1,5 @@
 <template>
-    <div class="events">
+    <div class="events" id="events">
       <Home />
       <div class="aboutBlock">
         <section class="about">
