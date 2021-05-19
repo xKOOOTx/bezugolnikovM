@@ -95,9 +95,13 @@ export default {
     align-items: center;
     font-size: 14px;
     color: $white;
+    &:hover &_text{
+      color: #1DA1F2;
+    }
     &_text {
       margin-right: 15px;
       margin-bottom: 20px;
+      transition: color .2s ease-in-out;
     }
   }
   &__socials {

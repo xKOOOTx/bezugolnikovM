@@ -17,7 +17,7 @@
               :key="idx"
               @click="scrollToElement"
           >
-            <router-link :to=link.routerLink class="navigation__subblock_link">{{ link.name }}</router-link>
+            <router-link :id=link.link :to=link.routerLink class="navigation__subblock_link">{{ link.name }}</router-link>
           </li>
         </ul>
       </li>
@@ -89,7 +89,7 @@ export default {
   methods: {
     scrollToElement () {
       setTimeout(() => {
-        const el = document.getElementById('scroll_to_navigate')
+        const el = window.scrollBy(0, 100)
         el.scrollIntoView({ behavior: 'smooth' })
       }, 250)
     }
