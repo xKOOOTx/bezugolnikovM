@@ -1,8 +1,8 @@
 <template>
   <div class="home" id="top">
     <div class="introduction">
-      <BottomNavigation />
     </div>
+    <BottomNavigation />
     <router-view />
   </div>
 </template>
@@ -32,7 +32,6 @@ export default {
   height: 100vh;
 }
 .introduction {
-  position: relative;
   height: 100vh;
   background: url("../assets/images/DSC_9409.jpg") center no-repeat;
   background-size: cover;

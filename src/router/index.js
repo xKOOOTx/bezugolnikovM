@@ -19,6 +19,11 @@ const routes = [
     path: '/gallery',
     name: 'Gallery',
     component: () => import('../views/Gallery')
+  },
+  {
+    path: '/official',
+    name: 'Official',
+    component: () => import('../views/Official')
   }
 /* {
     path: '/about',
