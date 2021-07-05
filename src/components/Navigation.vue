@@ -38,6 +38,7 @@
         </a>
       </li>
     </ul>
+    <div class="mobile__burger" @click="mobileBurgerToggle()"></div>
   </div>
 </template>
 
@@ -92,6 +93,14 @@ export default {
         const el = window.scrollBy(0, 50)
         el.scrollIntoView({ behavior: 'smooth' })
       }, 250)
+    },
+    mobileBurgerToggle () {
+      const mobileBurger = document.querySelector('.mobile__burger')
+      const mobileNavigationBlock = document.querySelector('.navigation__block')
+      const bottomNavigation = document.querySelector('.bottomNavigation')
+      mobileBurger.classList.toggle('mobile__burger-active')
+      mobileNavigationBlock.classList.toggle('navigation__block-mobile')
+      bottomNavigation.classList.toggle('bottomNavigation-hidden')
     }
   }
 }
@@ -257,6 +266,86 @@ export default {
   100% {
     height: 215px;
     opacity: 1;
+  }
+}
+
+@media (max-width: 450px) {
+  .navigation {
+    margin: 0;
+    &__block {
+      display: none;
+      &-mobile {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: black;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      &_link {
+        margin: 20px 0;
+        font-size: 26px;
+      }
+    }
+  }
+  .mobile__burger {
+    position: relative;
+    width: 30px;
+    height: 1px;
+    background: $greyText;
+    &:before {
+      position: absolute;
+      top: -7px;
+      left: 0;
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: $greyText;
+    }
+    &:after {
+      position: absolute;
+      top: 7px;
+      left: 0;
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: $greyText;
+    }
+    &-active {
+      height: 0;
+      &:before {
+        transform: rotate(-45deg);
+        top: 0;
+        animation: .3s burgerOpenSecond ease-in-out;
+      }
+      &:after {
+        transform: rotate(45deg);
+        top: 0;
+        animation: .3s burgerOpenMain ease-in-out;
+      }
+    }
+  }
+}
+
+@keyframes burgerOpenMain {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes burgerOpenSecond {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-45deg);
   }
 }
 </style>

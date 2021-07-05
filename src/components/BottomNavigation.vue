@@ -139,6 +139,9 @@ export default {
       -moz-text-fill-color: transparent;
     }
   }
+  &-hidden {
+    display: none;
+  }
 }
 
 .socials {
@@ -203,6 +206,12 @@ export default {
   100% {
     transform: translateY(-100%);
     opacity: 1;
+  }
+}
+
+@media (max-width: 450px) {
+  .bottomNavigation__left {
+    display: none;
   }
 }
 </style>

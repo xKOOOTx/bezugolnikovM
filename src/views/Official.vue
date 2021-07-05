@@ -2,7 +2,7 @@
   <div class="slider">
     <splide :options="options" class="slider__block">
       <splide-slide v-for="image in sliderImages" :key=image.name>
-        <router-link style=`background-image: {{ image.path }}` :src=image.path :alt=image.alt class="slider__block_image"></router-link>
+        <router-link style= background-image: {{ image.path }} :src=image.path :alt=image.alt class="slider__block_image"></router-link>
       </splide-slide>
     </splide>
   </div>
