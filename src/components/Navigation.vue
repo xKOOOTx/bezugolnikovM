@@ -8,7 +8,7 @@
         <router-link to="/gallery" class="navigation__block_link">
           gallery
         </router-link>
-        <router-link to="/gallery" class="navigation__block_link-span">
+        <router-link to="/gallery" class="navigation__block_link-span" @click="scrollToElement">
           gallery
         </router-link>
         <ul class="navigation__subblock">
@@ -25,20 +25,20 @@
         <a href="#" class="navigation__block_link">
           about
         </a>
-        <a href="#" class="navigation__block_link-span">
+        <router-link to="/about" class="navigation__block_link-span" @click="scrollToElement">
           about
-        </a>
+        </router-link>
       </li>
       <li class="navigation__block_li">
         <a href="#" class="navigation__block_link">
           contacts
         </a>
-        <a href="#" class="navigation__block_link-span">
+        <router-link to="/contacts" class="navigation__block_link-span" @click="scrollToElement">
           contacts
-        </a>
+        </router-link>
       </li>
     </ul>
-    <div class="mobile__burger" @click="mobileBurgerToggle()"></div>
+    <div class="mobile__burger"></div>
   </div>
 </template>
 
@@ -89,19 +89,27 @@ export default {
   },
   methods: {
     scrollToElement () {
+      window.scrollBy(0, -9999)
+      console.log('clicked')
+
       setTimeout(() => {
-        const el = window.scrollBy(0, 50)
-        el.scrollIntoView({ behavior: 'smooth' })
-      }, 250)
+        window.scrollBy(0, 150)
+        this.hideBottomNav()
+      }, 1000)
     },
-    mobileBurgerToggle () {
-      const mobileBurger = document.querySelector('.mobile__burger')
-      const mobileNavigationBlock = document.querySelector('.navigation__block')
+    hideBottomNav () {
       const bottomNavigation = document.querySelector('.bottomNavigation')
-      mobileBurger.classList.toggle('mobile__burger-active')
-      mobileNavigationBlock.classList.toggle('navigation__block-mobile')
-      bottomNavigation.classList.toggle('bottomNavigation-hidden')
+      bottomNavigation.classList.remove('bottomNavigation-hidden')
+      bottomNavigation.classList.add('bottomNavigation-hidden')
     }
+    // mobileBurgerToggle () {
+    //   const mobileBurger = document.querySelector('.mobile__burger')
+    //   const mobileNavigationBlock = document.querySelector('.navigation__block')
+    //   const bottomNavigation = document.querySelector('.bottomNavigation')
+    //   mobileBurger.classList.toggle('mobile__burger-active')
+    //   mobileNavigationBlock.classList.toggle('navigation__block-mobile')
+    //   bottomNavigation.classList.toggle('bottomNavigation-hidden')
+    // }
   }
 }
 </script>
@@ -215,6 +223,12 @@ export default {
     }
   }
 }
+
+.mobile {
+  &__burger {
+    display: none;
+  }
+}
 // animation from swipe from bottom to top
 @-webkit-keyframes swing-top-bck {
   0% {
@@ -269,6 +283,25 @@ export default {
   }
 }
 
+@keyframes burgerOpenMain {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes burgerOpenSecond {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-45deg);
+  }
+}
+
+// media queries
 @media (max-width: 450px) {
   .navigation {
     margin: 0;
@@ -328,24 +361,6 @@ export default {
         animation: .3s burgerOpenMain ease-in-out;
       }
     }
-  }
-}
-
-@keyframes burgerOpenMain {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(45deg);
-  }
-}
-
-@keyframes burgerOpenSecond {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(-45deg);
   }
 }
 </style>

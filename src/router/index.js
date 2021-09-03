@@ -24,6 +24,36 @@ const routes = [
     path: '/official',
     name: 'Official',
     component: () => import('../views/Official')
+  },
+  {
+    path: '/portrait',
+    name: 'Portrait',
+    component: () => import('../views/Portrait')
+  },
+  {
+    path: '/reports',
+    name: 'Reports',
+    component: () => import('../views/Reports')
+  },
+  {
+    path: '/studio',
+    name: 'Studio',
+    component: () => import('../views/Studio')
+  },
+  {
+    path: '/wedding',
+    name: 'Wedding',
+    component: () => import('../views/Wedding')
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import('../views/About')
+  },
+  {
+    path: '/contacts',
+    name: 'Contacts',
+    component: () => import('../views/Contacts')
   }
 /* {
     path: '/about',

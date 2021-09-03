@@ -1,45 +1,110 @@
 <template>
-  <div class="bottomNavigation">
-    <div class="bottomNavigation__left">
-      <a href="#" class="bottomNavigation__left_link">
-        <i class="fas fa-chevron-down bottomNavigation__left_arrowIcon"></i>
-        Scroll or press me to navigate
-      </a>
-      <a @click="scrollDown" class="bottomNavigation__left_link-span" id="scroll_to_navigate">
-        <i class="fas fa-chevron-down bottomNavigation__left_arrowIcon-span"></i>
-        Scroll or press me to navigate
-      </a>
-    </div>
-    <div class="bottomNavigation__right">
-      <p class="bottomNavigation__right_text">
-        Contacts
-      </p>
-      <div class="bottomNavigation__socials">
-        <div class="bottomNavigation__socials_block">
-          <a class="bottomNavigation__socials_whatsapp socials"><i class="fab fa-whatsapp"></i></a>
-          <a class="bottomNavigation__socials_whatsapp-span socials-span"><i class="fab fa-whatsapp"></i></a>
+  <div class="">
+<!--    <div class="bottomNavigation" v-if="ifRouteChosen">
+      <div class="bottomNavigation__left">
+        <a href="#" class="bottomNavigation__left_link">
+          <i class="fas fa-chevron-down bottomNavigation__left_arrowIcon"></i>
+          Scroll or press me to navigate
+        </a>
+        <a @click="scrollDown" class="bottomNavigation__left_link-span" id="scroll_to_navigate">
+          <i class="fas fa-chevron-down bottomNavigation__left_arrowIcon-span"></i>
+          Scroll or press me to navigate
+        </a>
+      </div>
+      <div class="bottomNavigation__right">
+        <p class="bottomNavigation__right_text">
+          Contacts
+        </p>
+        <div class="bottomNavigation__socials">
+          <div class="bottomNavigation__socials_block">
+            <a class="bottomNavigation__socials_whatsapp socials"><i class="fab fa-whatsapp"></i></a>
+            <a class="bottomNavigation__socials_whatsapp-span socials-span"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <div class="bottomNavigation__socials_block">
+            <a class="bottomNavigation__socials_vk socials"><i class="fab fa-vk"></i></a>
+            <a class="bottomNavigation__socials_vk-span socials-span"><i class="fab fa-vk"></i></a>
+          </div>
+          <div class="bottomNavigation__socials_block">
+            <a class="bottomNavigation__socials_instagram socials"><i class="fab fa-instagram"></i></a>
+            <a class="bottomNavigation__socials_instagram-span socials-span"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
-        <div class="bottomNavigation__socials_block">
-          <a class="bottomNavigation__socials_vk socials"><i class="fab fa-vk"></i></a>
-          <a class="bottomNavigation__socials_vk-span socials-span"><i class="fab fa-vk"></i></a>
-        </div>
-        <div class="bottomNavigation__socials_block">
-          <a class="bottomNavigation__socials_instagram socials"><i class="fab fa-instagram"></i></a>
-          <a class="bottomNavigation__socials_instagram-span socials-span"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>-->
+    <div class="bottomNavigation">
+      <div class="bottomNavigation__left">
+        <a href="#" class="bottomNavigation__left_link">
+          Please choose an item from Gallery
+        </a>
+        <a class="bottomNavigation__left_link-span" id="scroll_to_navigate">
+          Please choose an item from Gallery
+        </a>
+      </div>
+      <div class="bottomNavigation__right">
+        <p class="bottomNavigation__right_text">
+          Contacts
+        </p>
+        <div class="bottomNavigation__socials">
+          <div class="bottomNavigation__socials_block">
+            <a class="bottomNavigation__socials_whatsapp socials"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/+79998198079" target="_blank" class="bottomNavigation__socials_whatsapp-span socials-span"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <div class="bottomNavigation__socials_block">
+            <a class="bottomNavigation__socials_vk socials"><i class="fab fa-vk"></i></a>
+            <a href="https://vk.com/michealbezug" target="_blank" class="bottomNavigation__socials_vk-span socials-span"><i class="fab fa-vk"></i></a>
+          </div>
+          <div class="bottomNavigation__socials_block">
+            <a class="bottomNavigation__socials_instagram socials"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/bezugolnikov_photographer" target="_blank" class="bottomNavigation__socials_instagram-span socials-span"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
       </div>
     </div>
+<!--    <div class="bottomNavigation" v-else>-->
+<!--      <div class="bottomNavigation__left">-->
+<!--        <button class="bottomNavigation__left_buttonLeft" @click="switchSlide('prev')">Previous</button>-->
+<!--      </div>-->
+<!--      <div class="bottom-navigation__middle">-->
+<!--        <router-link-->
+<!--          class="bottom-navigation__middle_button"-->
+<!--          @click="chooseSlide()"-->
+<!--          :to="'/events'"-->
+<!--        >Chose</router-link>-->
+<!--      </div>-->
+<!--      <div class="bottomNavigation__right">-->
+<!--        <button class="bottomNavigation__right_buttonRight" @click="switchSlide('next')">Next</button>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </template>
 
 <script>
 export default {
   name: 'BottomNavigation',
-  methods: {
-    scrollDown () {
-      const el = document.getElementById('scroll_to_navigate')
-      el.scrollIntoView({ behavior: 'smooth' })
+  data () {
+    return {
+      ifRouteChosen: false,
+      props: {
+        galleryLinks: []
+      }
     }
+  },
+  methods: {
+    // scrollDown () {
+    //   const el = document.getElementById('scroll_to_navigate')
+    //   el.scrollIntoView({ behavior: 'smooth' })
+    // },
+    // switchSlide (direction) {
+    //   if (direction == 'next') {
+    //     console.log('next')
+    //   } else {
+    //     console.log('prev')
+    //   }
+    // },
+    // chooseSlide () {
+    //   this.ifRouteChosen = true
+    //   this.scrollDown()
+    // }
   }
 }
 </script>
@@ -49,14 +114,18 @@ export default {
 @import "src/assets/style/variales";
 
 .bottomNavigation {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  position: absolute;
   bottom: 0;
   margin: 30px 80px;
   z-index: 2;
+  &__left_buttonLeft, &__right_buttonRight {
+    font-size: 24px;
+    color: $white;
+  }
   &__left {
     display: block;
     align-items: center;
@@ -92,6 +161,10 @@ export default {
         margin-right: 10px;
         color: $white;
       }
+    }
+    &_buttonLeft {
+    }
+    &_buttonRight {
     }
   }
   &__right {
